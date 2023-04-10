@@ -1,6 +1,6 @@
 body{
     background-image: url("../img/bg.jpg");
-    background-size: fill;
+    background-size: contain;
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.2);
 
@@ -32,15 +32,28 @@ img{
 p{
     place-items: left;
     align-content: left;
+    font-size: 2vh;
+}
+li{
+    font-size: 2vh;
+}
+a{
+    font-size: 2vh;
 }
 h1{
+    text-align: center;
     color: #000000;
-    margin-top: 80%;
+    margin-top: 30%;
     margin-bottom: 160%;
-    font-size: 80px;
+    font-size: 9vh;
 }
 h2{
-    font-size: 50px;
+    text-align: center;
+    font-size: 5vh;
+}
+h4{
+    text-align: center;
+    font-size: 3vh;
 }
 .row{
     margin-bottom: 30px;
