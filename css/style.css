@@ -1,6 +1,11 @@
 body{
+    background-image: url("../img/bg.jpg");
+    background-size: fill;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.2);
+
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: #16100e;
+    background-color: #001a21;
     color: #000000;
     padding: 0;
     margin: 0;
@@ -28,8 +33,12 @@ p{
     align-content: left;
 }
 h1{
-    color: #ffffff;
+    color: #000000;
     margin-top: 40px;
+    font-size: 80px;
+}
+h2{
+    font-size: 50px;
 }
 .hidden{
     opacity: 0;
