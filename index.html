@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mountains</title>
+</head>
+<body>
+    <div id="progress">
+        <span id="progress-value">&#x1F815;</span>
+    </div>
+    <div class="container">
+        <div class="row mb-6">
+            <h1><b>Mountains</b></h1>
+        </div>
+    </div>
+    <div id="datas" class="container">
+    </div>
+
+    <script>
+        const xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onload = function() {
+            const myarr = JSON.parse(this.responseText);
+            var txt = "";
+            for (let i = 0; i < 5; i++) {
+                var name = myarr.Mountain[i].Name;
+                txt +=`
+                    <div class="row">
+                        
+                        <section class="hidden">
+                            <img src="img/${name.toLowerCase().replace(/\s/g,'')}.jpg" alt="">
+                            <div class="card">
+                                <h2><b>${name}</b></h2>
+                                <p><b>Mountain Type: </b>${myarr.Mountain[i].MountainType}</p>
+                                <p><b>Height: </b>${myarr.Mountain[i].Height}</p>
+                                <p><b>Country: </b>${myarr.Mountain[i].Country}</p>
+                                <p><b>Minerals Found: </b>
+                    
+                `
+                for (let j = 0; j < 5; j++) {
+                    if (j == 4) {
+                        for (let k = 0; k < 7; k++) {
+                            if (k != 6) {
+                                txt +=`
+                                    ${myarr.Mountain[i].Minerals[k]},&nbsp;
+                                    
+                                `
+                            }
+                            else
+                                txt +=`
+                                    ${myarr.Mountain[i].Minerals[k]}. 
+                                `
+                        }
+                    }
+                }
+                txt +=`</p></div></section></div>`
+            }
+
+            document.getElementById("datas").innerHTML = txt;
+        }
+        
+        
+        xmlhttp.open("GET", "http://midterm-php.test/moutains.php");
+        xmlhttp.send();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="js/animation.js"></script>
+</body>
+</html>
