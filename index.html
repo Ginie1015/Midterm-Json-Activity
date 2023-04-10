@@ -42,26 +42,21 @@
                                 <p><b>Mountain Type: </b>${myarr.Mountain[i].MountainType}</p>
                                 <p><b>Height: </b>${myarr.Mountain[i].Height}</p>
                                 <p><b>Country: </b>${myarr.Mountain[i].Country}</p>
-                                <p><b>Minerals Found: </b>
+                                <p><b><a class="btn btn-dark" data-toggle="collapse" href="#multiCollapseExample${i}" role="button" aria-expanded="false" aria-controls="multiCollapseExample${i}">Minerals Found:</a> </b>
+                                    <div class="collapse multi-collapse" id="multiCollapseExample${i}">
+                                            <ul>
                     
                 `
                 for (let j = 0; j < 5; j++) {
                     if (j == 4) {
                         for (let k = 0; k < 7; k++) {
-                            if (k != 6) {
                                 txt +=`
-                                    ${myarr.Mountain[i].Minerals[k]},&nbsp;
-                                    
-                                `
-                            }
-                            else
-                                txt +=`
-                                    ${myarr.Mountain[i].Minerals[k]}. 
+                                    <li>${myarr.Mountain[i].Minerals[k]}</li>
                                 `
                         }
                     }
                 }
-                txt +=`</p></div></section></div>`
+                txt +=`</ul></div></p></div></section></div>`
             }
 
             document.getElementById("datas").innerHTML = txt;
