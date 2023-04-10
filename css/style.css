@@ -18,6 +18,7 @@ html{
     place-items: center;
     align-content: center;
     border-top: 0;
+    margin-top: 5px;
 }
 section{
     display: grid;
